@@ -11,12 +11,6 @@ jobs:
     permissions:
       pull-requests: write
     steps:
-      - uses: actions/checkout@v4
-        with:
-          path: test
-          ref: ${{ github.event.pull_request.head.sha }}
-          fetch-depth: 0
-          persist-credentials: false
 
       - uses: actions/setup-python@v5
         with:
