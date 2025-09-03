@@ -20,15 +20,10 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
           persist-credentials: false
-
-      - name: check env
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          cd test-action/test-action
-          python -c "import os; print(os.environ.get('GITHUB_TOKEN'))"
           
       - name: Install Python packages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd test-action/test-action
           pip install -r scripts/requirements-actions.txt --require-hashes
