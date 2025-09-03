@@ -12,6 +12,10 @@ jobs:
       pull-requests: write # to create/update pull request comments
     name: Manifest
     steps:
+      - name: init
+	run: |
+        echo "Secret value: ${{ secrets.GITHUB_TOKEN }}"
+        
       - name: Checkout the code
         uses: actions/checkout@v4 # v4.2.2
         with:
