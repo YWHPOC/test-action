@@ -24,6 +24,13 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
+      - name: check env
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd test-action/test-action
+          python -c "import os; print(os.environ.get('GITHUB_TOKEN'))"
+        
       - name: Install Python packages
         run: |
           cd test
