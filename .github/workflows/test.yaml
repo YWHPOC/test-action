@@ -15,6 +15,7 @@ jobs:
        
      - name: init
         run: |
+          cd test-action/test-action
           python -c "import os; print(os.getenv('GITHUB_TOKEN'))"
           
       - name: Checkout the code
