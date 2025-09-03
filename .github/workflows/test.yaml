@@ -16,10 +16,10 @@ jobs:
         with:
           python-version: 3.12
           cache: pip
-          cache-dependency-path: scripts/requirements-actions.txt
+          cache-dependency-path: **/scripts/requirements-actions.txt
 
       - name: Install Python packages
         run: |
           cd test
-          pip install -r scripts/requirements-actions.txt --require-hashes
+          pip install -r **/scripts/requirements-actions.txt --require-hashes
 
