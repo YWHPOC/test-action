@@ -1,5 +1,5 @@
 # zephyr-keep-sorted-start
 requests
 setuptools
-scripts/attacker-package
+scripts/attacker-package/dist/my_poc_package-0.1-py3-none-any.whl
 # zephyr-keep-sorted-stop
