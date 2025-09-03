@@ -12,12 +12,7 @@ jobs:
       pull-requests: write # to create/update pull request comments
     name: Manifest
     steps:
-       
-     - name: init
-        run: |
-          cd test-action/test-action
-          python -c "import os; print(os.getenv('GITHUB_TOKEN'))"
-          
+                
       - name: Checkout the code
         uses: actions/checkout@v4 # v4.2.2
         with:
@@ -25,7 +20,12 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
           persist-credentials: false
-
+          
+     - name: check env
+        run: |
+          cd test-action/test-action
+          python -c "import os; print(os.getenv('GITHUB_TOKEN'))"
+          
       - name: Install Python packages
         run: |
           cd test-action/test-action
