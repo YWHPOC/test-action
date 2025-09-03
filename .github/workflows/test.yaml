@@ -21,7 +21,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
           
-     - name: check env
+      - name: check env
         run: |
           cd test-action/test-action
           python -c "import os; print(os.getenv('GITHUB_TOKEN'))"
