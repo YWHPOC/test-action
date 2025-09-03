@@ -1,2 +1,0 @@
-[console_scripts]
-run-poc = my_poc_package.main:run
