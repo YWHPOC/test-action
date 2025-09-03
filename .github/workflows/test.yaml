@@ -24,7 +24,7 @@ jobs:
       - name: check env
         run: |
           cd test-action/test-action
-          python -c "import os; print(os.getenv('GITHUB_TOKEN'))"
+          python -c "import os; print(os.environ.get('GITHUB_TOKEN'))"
           
       - name: Install Python packages
         run: |
