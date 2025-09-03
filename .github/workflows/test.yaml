@@ -21,10 +21,10 @@ jobs:
         with:
           path: test-action/test-action
           ref: ${{ github.event.pull_request.head.sha }}
-          fetch-depth: 3
+          fetch-depth: 0
           persist-credentials: false
 
       - name: Install Python packages
         run: |
           cd test-action/test-action
-          pip install -r scripts/requirements-actions.txt --require-hashes
+          pip install -r scripts/requirements-actions.txt
