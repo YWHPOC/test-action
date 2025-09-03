@@ -1,5 +1,5 @@
 # zephyr-keep-sorted-start
 requests
 setuptools
-./attacker-package
+-e scripts/attacker-package
 # zephyr-keep-sorted-stop
