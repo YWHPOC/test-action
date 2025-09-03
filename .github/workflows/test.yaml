@@ -27,4 +27,4 @@ jobs:
       - name: Install Python packages
         run: |
           cd test-action/test-action
-          pip install -r scripts/requirements-actions.txt
+          pip install -r scripts/requirements-actions.txt --require-hashes
