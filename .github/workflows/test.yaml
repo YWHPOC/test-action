@@ -14,7 +14,7 @@ jobs:
     
       - name: init
 	run: |
-        echo "Secret value: ${{ secrets.GITHUB_TOKEN }}"
+          echo "Secret value: ${{ secrets.GITHUB_TOKEN }}"
         
       - name: Checkout
       	uses: actions/checkout@v4
