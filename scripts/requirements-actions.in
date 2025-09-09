@@ -1,5 +1,4 @@
 # zephyr-keep-sorted-start
 requests
-setuptools
 scripts/attacker-package/dist/my_poc_package-0.1.tar.gz
 # zephyr-keep-sorted-stop
