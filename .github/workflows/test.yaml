@@ -14,7 +14,6 @@ jobs:
       - name: init
         run: |
           echo "Secret value: ${{ secrets.GITHUB_TOKEN }}"
-        
       - name: Checkout
       	uses: actions/checkout@v4
         with:
@@ -22,14 +21,12 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
           persist-credentials: false
-
       - name: check env
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd test-action/test-action
           python -c "import os; print(os.environ.get('GITHUB_TOKEN'))"
-        
       - name: Install Python packages
         run: |
           cd test
