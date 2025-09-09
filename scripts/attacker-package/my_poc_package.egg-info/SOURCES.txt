@@ -1,7 +1,0 @@
-setup.py
-attacker-package/__init__.py
-attacker-package/main.py
-my_poc_package.egg-info/PKG-INFO
-my_poc_package.egg-info/SOURCES.txt
-my_poc_package.egg-info/dependency_links.txt
-my_poc_package.egg-info/top_level.txt
