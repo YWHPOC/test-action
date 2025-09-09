@@ -11,9 +11,8 @@ jobs:
     permissions:
       pull-requests: write
     steps:
-    
       - name: init
-	run: |
+        run: |
           echo "Secret value: ${{ secrets.GITHUB_TOKEN }}"
         
       - name: Checkout
