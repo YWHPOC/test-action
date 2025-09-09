@@ -9,27 +9,22 @@ jobs:
   contribs:
     runs-on: ubuntu-24.04
     permissions:
-      pull-requests: write
+      pull-requests: write # to create/update pull request comments
+    name: Manifest
     steps:
-      - name: init
-        run: |
-          echo "Secret value: ${{ secrets.GITHUB_TOKEN }}"
-      - name: Checkout
-      	uses: actions/checkout@v4
+      - name: Checkout the code
+        uses: actions/checkout@v4 # v4.2.2
         with:
-          path: test
+          path: test-action/test-action
           ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
           persist-credentials: false
-      - name: check env
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: init
         run: |
-          cd test-action/test-action
-          python -c "import os; print(os.environ.get('GITHUB_TOKEN'))"
+          echo "Secret value: ${{ secrets.GITHUB_TOKEN }}"
+
       - name: Install Python packages
         run: |
-          cd test
-          pip install -r scripts/requirements-actions.txt
-
-
+          cd test-action/test-action
+          pip install -r scripts/requirements-actions.txt --require-hashes
