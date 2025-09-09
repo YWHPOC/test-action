@@ -1,0 +1,26 @@
+name: Build and test app in NCS docker container
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  set-image-tag:
+    runs-on: ubuntu-24.04
+    outputs:
+      IMAGE_TAG: ${{ steps.set-output.outputs.IMAGE_TAG }}
+    steps:
+      - name: Checkout repository with example application
+        uses: actions/checkout@v4
+        with:
+          path: example-application
+
+      - name: Prepare west project
+        run: |
+          python3 -m pip install west
+          west init -l example-application
+          west update -o=--depth=1 -n nrf
+
+      - name: Find toolchain bundle id
+        id: set-output
+        run: echo "IMAGE_TAG=$(./nrf/scripts/print_toolchain_checksum.sh)" >> $GITHUB_OUTPUT
