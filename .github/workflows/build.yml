@@ -58,10 +58,7 @@ on:
 
 jobs:
   build:
-    runs-on: build_self_hosted
-    container: ghcr.io/zephyrproject-rtos/ci:v0.27.4
-    env:
-      CMAKE_PREFIX_PATH: /opt/toolchains
+    runs-on: ubuntu-latest
     outputs:
       run_id: ${{ github.run_id }}
       version: ${{ env.VERSION }}
@@ -74,23 +71,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           path: asset-tracker-template
-
-      - name: Initialize
-        working-directory: asset-tracker-template
-        run: |
-          if [ ! -d "../.west" ]; then
-            west init -l .
-          else
-            echo ".west folder already exists, skipping west init."
-          fi
-          if [ "$NRFSDK_SHA_UPDATE" = "true" ]; then
-            NRFSDK_SHA=$(git ls-remote https://github.com/nrfconnect/sdk-nrf main | awk '{print $1}')
-            sed -i "/revision:/s/\( *revision: *\).*/\1${NRFSDK_SHA}/" west.yml
-            echo Configuring build on NCS rev ${NRFSDK_SHA}
-            echo "NRFSDK_SHA=${NRFSDK_SHA}" >> $GITHUB_ENV
-          fi
-          west update -o=--depth=1 -n
-          west blobs fetch hal_nordic
 
       - name: Install dependencies
         run: |
