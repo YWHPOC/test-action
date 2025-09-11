@@ -72,6 +72,13 @@ jobs:
         with:
           path: asset-tracker-template
 
+
+      - name: Install dependencies
+        run: |
+          # The Matter IDL is part of requirements-build.txt, but it's not available
+          # in pypi so we need to install it from the source code
+
+
       - name: Set MEMFAULT_FW_TYPE and MEMFAULT_FW_VERSION_PREFIX
         shell: bash
         run: |
