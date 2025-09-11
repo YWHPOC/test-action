@@ -46,7 +46,7 @@ jobs:
           BASE_REF: ${{ github.event.pull_request.base.ref }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
-          brew install sonar-scanner && \
+          apt install sonar-scanner && \
           sonar-scanner \
             --define sonar.cfamily.build-wrapper-output="${{ env.BUILD_WRAPPER_OUT_DIR }}" \
             --define project.settings=sonar-project.properties \
